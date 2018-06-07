@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  Selenium自动化测试框架02 |   Kang </title>
+  <title>  Selenium自动化测试框架03 |   Kang </title>
 
  
   
@@ -73,20 +73,20 @@
 	<div class="post-header">
 
 	<p class="post-title">	
-		selenium自动化测试框架02
+		selenium自动化测试框架03
 	</p>
 			
 
 	<div class="meta-info">	
 	<span>
-		6月 06, 2018
+		6月 07, 2018
 	</span>
 
 	
 	
 		<i class="iconfont icon-words"></i>
 		<span>
-			799
+			1054
 		</span>
 	
 </div>
@@ -99,11 +99,28 @@
 		
 
 			
-					<h1 id="框架组成"><a href="#框架组成" class="headerlink" title="框架组成"></a><strong>框架组成</strong></h1><p><img src="https://i.imgur.com/GOcBfAI.png" alt=""></p>
-<h2 id="login-tests"><a href="#login-tests" class="headerlink" title="login_tests"></a>login_tests</h2><pre><code>from selenium import webdriver
-from selenium.webdriver.common.by import By
+					<h2 id="login-page"><a href="#login-page" class="headerlink" title="login_page"></a>login_page</h2><pre><code>from selenium.webdriver.common.by import By
 
-class LoginTests():
+class LoginPage():
+    def __init__(self, driver):
+        self.driver = driver
+
+    def login(self, username, passwordfield):
+
+        email = self.driver.find_element(By.ID, &quot;form_email&quot;)
+        email.send_keys(username)
+
+        password = self.driver.find_element(By.ID, &quot;form_password&quot;)
+        password.send_keys(passwordfield)
+
+        loginbnt = self.driver.find_element(By.CLASS_NAME, &quot;bn-submit&quot;)
+        loginbnt.click()
+</code></pre><h2 id="login-tests"><a href="#login-tests" class="headerlink" title="login_tests"></a>login_tests</h2><pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+from pages.home.login_page import LoginPage
+import unittest
+
+class LoginTests(unittest.TestCase):
      def test_vaildLogin(self):
          baseURL = &quot;https://www.douban.com/&quot;
          driver = webdriver.Firefox()
@@ -111,14 +128,8 @@ class LoginTests():
          driver.implicitly_wait(3)
          driver.get(baseURL)
 
-         email = driver.find_element(By.ID, &quot;form_email&quot;)
-         email.send_keys(&quot;&quot;)
-
-         password = driver.find_element(By.ID, &quot;form_password&quot;)
-         password.send_keys(&quot;&quot;)
-
-         loginbnt = driver.find_element(By.CLASS_NAME, &quot;bn-submit&quot;)
-         loginbnt.click()
+         lp = LoginPage(driver)
+         lp.login(&quot;&quot;, &quot;&quot;)
 
          username = driver.find_element(By.XPATH, &quot;/html/body/div[1]/div/div[1]/ul/li[2]/a/span[1]&quot;)
          if username is not None:
@@ -127,9 +138,6 @@ class LoginTests():
          else:
              print(&quot;login failed&quot;)
              driver.quit()
-
-ff = LoginTests()
-ff.test_vaildLogin()
 </code></pre>  	
 					
 	  </div>     
@@ -215,14 +223,11 @@ ff.test_vaildLogin()
 
       </div>  
     <nav class="pf-paginator">
-      
-         
-          <a href="/2018/06/07/selenium自动化框架03/" data-hover="selenium自动化测试框架03">上一篇</a>      
-            
+           
         
       
         
-        <a href="/2018/06/03/UNITTEST介绍/" data-hover="Unittest入门01"> 下一篇</a>
+        <a href="/2018/06/06/selenium自动化框架02/" data-hover="selenium自动化测试框架02"> 下一篇</a>
             
   </nav>   
   </div>
