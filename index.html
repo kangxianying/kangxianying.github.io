@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  Kang </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <header class="header">
+	
+  <nav class="header-nav">        
+   
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <!-- <a class="header-logo" href="/"></a> -->
+
+    <div class="header-menu">          
+              
+            
+
+              <a class="header-menu-link" id="header-menu-home" href="/">首页</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">归档</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">标签</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-about" href="/about">赞赏</a>     
+
+            
+            
+            
+
+              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
+
+            
+                
+    </div>  
+    
+  </nav>
+</header>   
+
+      <div class="container">       
+          
+          
+            <section class="main">  
+          
+
+          
+
+
+<div class="profile sildeUpMin">
+
+		
+		<a href="/">
+			<img class="avatar" src="/images/header.jpg">
+		</a>
+		
+		<p class="author">Sia</p>
+		
+		<div class="social">
+   		      		
+		<a target="_blank" class="social-links" href="https://github.com/kangxianying">		
+			<i class="iconfont icon-Github"></i>
+		</a>	
+	          		
+		<a target="_blank" class="social-links" href="">		
+			<i class="iconfont icon-Weibo"></i>
+		</a>	
+	          		
+		<a target="_blank" class="social-links" href="">		
+			<i class="iconfont icon-Facebook"></i>
+		</a>	
+	          		
+		<a target="_blank" class="social-links" href="">		
+			<i class="iconfont icon-Twitter"></i>
+		</a>	
+	          		
+		<a target="_blank" class="social-links" href="">		
+			<i class="iconfont icon-Instagram"></i>
+		</a>	
+	          		
+		<a target="_blank" class="social-links" href="">		
+			<i class="iconfont icon-LinkedIn"></i>
+		</a>	
+	    
+    	</div>		
+</div>
+
+      	  	
+
+  		
+    	<article class="article">		
+	   
+	<div class="article-header">
+	    
+	     <a class="article-title" href="/2018/06/06/selenium自动化框架02/">selenium自动化测试框架02</a>  
+	       
+		 
+
+		<div class="article-meta">
+		
+		6月 06, 2018
+
+		
+			<span class="iconfont icon-star"></span>		 
+			            
+			<a class="article-tag" href="/tags/selenium/">selenium</a>           
+			            
+			<a class="article-tag" href="/tags/python/">python</a>           
+			
+		
+		</div>
+
+	</div>
+
+
+	
+
+    
+	<div class="article-excerpt">	
+		 
+			<h1 id="框架组成"><a href="#框架组成" class="headerlink" title="框架组成"></a><strong>框架组成</strong></h1><p><img src="https://i.imgur.com/GOcBfAI.png" alt=""></p>
+<h2 id="login-tests"><a href="#login-tests" class="headerlink" title="login_tests"></a>login_tests</h2><pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+class LoginTests():
+     def test_vaildLogin(self):
+         baseURL = &quot;https://www.douban.com/&quot;
+         driver = webdriver.Firefox()
+         driver.maximize_window()
+         driver.implicitly_wait(3)
+         driver.get(baseURL)
+
+         email = driver.find_element(By.ID, &quot;form_email&quot;)
+         email.send_keys(&quot;&quot;)
+
+         password = driver.find_element(By.ID, &quot;form_password&quot;)
+         password.send_keys(&quot;&quot;)
+
+         loginbnt = driver.find_element(By.CLASS_NAME, &quot;bn-submit&quot;)
+         loginbnt.click()
+
+         username = driver.find_element(By.XPATH, &quot;/html/body/div[1]/div/div[1]/ul/li[2]/a/span[1]&quot;)
+         if username is not None:
+             print(&quot;login successful&quot;)
+             driver.quit()
+         else:
+             print(&quot;login failed&quot;)
+             driver.quit()
+
+ff = LoginTests()
+ff.test_vaildLogin()
+</code></pre>
+		  	  
+	</div>
+
+	<div class="article-bottom">
+		<a class="article-readmore" href="/2018/06/06/selenium自动化框架02/">阅读更多</a> 	</div>	
+    
+</article>     
+     	
+      	  	
+
+  		
+    	<article class="article">		
+	   
+	<div class="article-header">
+	    
+	     <a class="article-title" href="/2018/06/03/UNITTEST介绍/">Unittest入门01</a>  
+	       
+		 
+
+		<div class="article-meta">
+		
+		6月 03, 2018
+
+		
+			<span class="iconfont icon-star"></span>		 
+			            
+			<a class="article-tag" href="/tags/unittest/">unittest</a>           
+			
+		
+		</div>
+
+	</div>
+
+
+	
+
+    
+	<div class="article-excerpt">	
+		 
+			<h1 id="UNITTEST介绍"><a href="#UNITTEST介绍" class="headerlink" title="UNITTEST介绍"></a><strong>UNITTEST介绍</strong></h1><p><img src="https://i.imgur.com/CanUwbf.png" alt=""></p>
+<h3 id="Test-Fixture"><a href="#Test-Fixture" class="headerlink" title="Test Fixture"></a>Test Fixture</h3><p>通过test fixture,可以为一个或多个test进行setup()和teardown().简单地说,setup()是事前执行,teardown()是事后执行</p>
+<h3 id="Test-Case"><a href="#Test-Case" class="headerlink" title="Test Case"></a>Test Case</h3><p>是Unittest最小的的组成部分,与assert结合,把检查细化</p>
+<h3 id="Test-Suit"><a href="#Test-Suit" class="headerlink" title="Test Suit"></a>Test Suit</h3><p>一起执行多个tests和test case</p>
+<h3 id="Test-Runner"><a href="#Test-Runner" class="headerlink" title="Test Runner"></a>Test Runner</h3><p>执行和反馈结果机制</p>
+<h3 id="Test-Report"><a href="#Test-Report" class="headerlink" title="Test Report"></a>Test Report</h3><p>汇总多个tests和test case结果</p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><pre><code>import unittest
+
+class TestCaseDemo1(unittest.TestCase):
+    def setUp(self):
+        print(&quot;I will run once before every testdemo&quot;)
+
+    def test_methodA(self):
+        print(&quot;Running method A&quot;)
+
+    def test_methodB(self):
+        print(&quot;Running method B&quot;)
+
+    def tearDown(self):
+        print(&quot;I will run after every testdemo&quot;)
+
+if __name__ == &apos;__main__&apos;:
+    unittest.main(verbosity=2)
+</code></pre>
+		  	  
+	</div>
+
+	<div class="article-bottom">
+		<a class="article-readmore" href="/2018/06/03/UNITTEST介绍/">阅读更多</a> 	</div>	
+    
+</article>     
+     	
+  
+
+
+
+          </section> 
+      </div>            
+    
+    <a id="backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+
+        
+        <div class="search-container sildeUpMin">
+
+
+            <div class="search-header">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">  
+            <span class="search-cancel iconfont icon-cancel"></span>
+          
+            </div>
+              
+            <div id="search-result" class="search-result"></div>
+
+        </div>
+ 
+
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">首页
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">归档
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">标签
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">赞赏
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            
+         
+      
+</div>        
+    
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?636802045446222199ae541e32c8133e"; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2018		
+	
+		Sia
+		<br>
+
+		Theme By
+		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
+		</div>			
+	 
+</footer>   
+
+  
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

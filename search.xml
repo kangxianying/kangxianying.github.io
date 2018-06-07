@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>selenium自动化测试框架02</title>
+      <link href="/2018/06/06/selenium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B602/"/>
+      <content type="html"><![CDATA[<h1 id="框架组成"><a href="#框架组成" class="headerlink" title="框架组成"></a><strong>框架组成</strong></h1><p><img src="https://i.imgur.com/GOcBfAI.png" alt=""></p><h2 id="login-tests"><a href="#login-tests" class="headerlink" title="login_tests"></a>login_tests</h2><pre><code>from selenium import webdriverfrom selenium.webdriver.common.by import Byclass LoginTests():     def test_vaildLogin(self):         baseURL = &quot;https://www.douban.com/&quot;         driver = webdriver.Firefox()         driver.maximize_window()         driver.implicitly_wait(3)         driver.get(baseURL)         email = driver.find_element(By.ID, &quot;form_email&quot;)         email.send_keys(&quot;&quot;)         password = driver.find_element(By.ID, &quot;form_password&quot;)         password.send_keys(&quot;&quot;)         loginbnt = driver.find_element(By.CLASS_NAME, &quot;bn-submit&quot;)         loginbnt.click()         username = driver.find_element(By.XPATH, &quot;/html/body/div[1]/div/div[1]/ul/li[2]/a/span[1]&quot;)         if username is not None:             print(&quot;login successful&quot;)             driver.quit()         else:             print(&quot;login failed&quot;)             driver.quit()ff = LoginTests()ff.test_vaildLogin()</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> selenium </tag>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Unittest入门01</title>
+      <link href="/2018/06/03/UNITTEST%E4%BB%8B%E7%BB%8D/"/>
+      <content type="html"><![CDATA[<h1 id="UNITTEST介绍"><a href="#UNITTEST介绍" class="headerlink" title="UNITTEST介绍"></a><strong>UNITTEST介绍</strong></h1><p><img src="https://i.imgur.com/CanUwbf.png" alt=""></p><h3 id="Test-Fixture"><a href="#Test-Fixture" class="headerlink" title="Test Fixture"></a>Test Fixture</h3><p>通过test fixture,可以为一个或多个test进行setup()和teardown().简单地说,setup()是事前执行,teardown()是事后执行</p><h3 id="Test-Case"><a href="#Test-Case" class="headerlink" title="Test Case"></a>Test Case</h3><p>是Unittest最小的的组成部分,与assert结合,把检查细化</p><h3 id="Test-Suit"><a href="#Test-Suit" class="headerlink" title="Test Suit"></a>Test Suit</h3><p>一起执行多个tests和test case</p><h3 id="Test-Runner"><a href="#Test-Runner" class="headerlink" title="Test Runner"></a>Test Runner</h3><p>执行和反馈结果机制</p><h3 id="Test-Report"><a href="#Test-Report" class="headerlink" title="Test Report"></a>Test Report</h3><p>汇总多个tests和test case结果</p><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><pre><code>import unittestclass TestCaseDemo1(unittest.TestCase):    def setUp(self):        print(&quot;I will run once before every testdemo&quot;)    def test_methodA(self):        print(&quot;Running method A&quot;)    def test_methodB(self):        print(&quot;Running method B&quot;)    def tearDown(self):        print(&quot;I will run after every testdemo&quot;)if __name__ == &apos;__main__&apos;:    unittest.main(verbosity=2)</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> unittest </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
